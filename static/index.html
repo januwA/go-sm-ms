@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SM-MS</title>
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="upload-btn" title="upload image">U
+      <input class="file" type="file" @change="uploadFile" />
+    </div>
+    <section class="images">
+      <div class="item" v-for="item of imagesReverser" :key="item.hash">
+        <img :src="item.url" :alt="item.filename" @load="imageLoad">
+        <div class="actions">
+          <button @click="del(item)">删除</button>
+          <button @click="copyUrl(item)">复制URL</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ajanuw-waterfall.js@0.1.5"></script>
+  <script src="/js/index.js"></script>
+</body>
+
+</html>
